@@ -7,6 +7,7 @@ import jcrystal.json.Jsonify;
 @Jsonify
 public class ChatResponse {
 	public String channel;
+	public String ts;
 	public MessageResponse message;
 		
 
@@ -15,6 +16,7 @@ public class ChatResponse {
 	}
 	public ChatResponse(org.json.JSONObject json)throws org.json.JSONException{
 		this.channel = json.has("channel")&&!json.isNull("channel")?json.getString("channel"):null;
+		this.ts = json.has("ts")&&!json.isNull("ts")?json.getString("ts"):null;
 		if(json.has("message") && !json.isNull("message")){
 			this.message = new integration.slack.data.MessageResponse(json.optJSONObject("message"));
 		}

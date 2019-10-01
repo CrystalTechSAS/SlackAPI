@@ -7,16 +7,17 @@ public class SerializerChatResponse{
 		boolean __first = true;
 		_pw.print("{");
 		__first = PrintWriterUtils.printJsonProp(_pw, __first, "\"channel\":", objeto.channel);
-		integration.slack.data.MessageResponse val1 = objeto.message;
-		if(val1 != null){
+		__first = PrintWriterUtils.printJsonProp(_pw, __first, "\"ts\":", objeto.ts);
+		integration.slack.data.MessageResponse val2 = objeto.message;
+		if(val2 != null){
 			if(__first){
 				_pw.print("\"message\":");
-				SerializerMessageResponse.toJson(_pw, val1);
+				SerializerMessageResponse.toJson(_pw, val2);
 				__first = false;
 			}
 			else{
 				_pw.print(",\"message\":");
-				SerializerMessageResponse.toJson(_pw, val1);
+				SerializerMessageResponse.toJson(_pw, val2);
 			}
 		}
 		_pw.print("}");
